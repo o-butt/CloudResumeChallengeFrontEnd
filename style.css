@@ -2,23 +2,6 @@ body {
     background-color: #393E46;
 }
 
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  background-color: #1d1c1e;
-  border-radius: 1rem;
-  min-width: 350px;
-  width: 50%;
-  max-width: 500px;
-  min-height: 700px;
-
-
-}
-
 h1 {
   color: #EEEEEE;
   text-align: center;
