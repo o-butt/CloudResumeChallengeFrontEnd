@@ -2,6 +2,3 @@
 
 #### Latest GitHub Actions test status:
 [![Cypress E2E tests ](https://github.com/o-butt/CloudResumeChallengeFrontEnd/actions/workflows/cypress.yml/badge.svg)](https://github.com/o-butt/CloudResumeChallengeFrontEnd/actions/workflows/cypress.yml)
-
-#### Latest GitHub Actions test status:
-[![Cypress E2E tests ](https://github.com/o-butt/CloudResumeChallengeFrontEnd/actions/workflows/cypress.yml/badge.svg)](https://github.com/o-butt/CloudResumeChallengeFrontEnd/actions/workflows/cypress.yml)
