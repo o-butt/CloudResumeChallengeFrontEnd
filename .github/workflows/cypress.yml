@@ -3,7 +3,7 @@ name: Cypress E2E tests
 on: [push]
 
 jobs:
-  cypress-run:
+  crc-cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -13,7 +13,6 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v4.2.0
 
-        with:
-          build: npm run build
-          start: npm start
-          
+#         with:
+#           build: npm run build
+#           start: npm start
