@@ -14,3 +14,8 @@ jobs:
         uses: cypress-io/github-action@v4.2.0
         with:
           record: true
+        env:
+          # pass the Dashboard record key as an environment variable (setup in GitHub project secret settings)
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
