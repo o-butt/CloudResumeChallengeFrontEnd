@@ -1,22 +1,30 @@
 name: Add File to Bucket
-on: push
+
+on: [push]
 
 jobs:
-  deploy:
+  upload-to-s3:
     runs-on: ubuntu-latest
-    
     steps:
     - name: Checkout code to remote GitHub hosted Ubuntu VM
       uses: actions/checkout@v2
-   
+
     - name: Upload file to bucket
       uses: zdurham/s3-upload-github-action@master
-      #with:
-      #  args: --acl public-read
       env:
         FILE: ./index.html
         AWS_REGION: 'us-east-1'
         S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         S3_KEY: ${{ secrets.S3_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    
+    - name: Invalidate index.html from CloudFront edge cache
+      run:
+        aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION" --paths "$PATHS"
+      env:
+        DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+        PATHS: "/index.html"
+        AWS_REGION: "us-east-1"
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
