@@ -4,16 +4,16 @@ on: push
 jobs:
  upload-to-s3:
     runs-on: ubuntu-latest
-  steps:
+steps:
+  - name: Upload file to s3 bucket
   - uses: actions/checkout@master
-  - name Upload file to s3 bucket
-  uses: zdurham/s3-upload-github-action@master
+uses: zdurham/s3-upload-github-action@master
   with:
     args: --acl public-read
-  env:
-      FILE: ./lambda.zip
-      AWS_REGION: 'us-east-1'
-      S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-      S3_KEY: ${{ secrets.S3_KEY }}
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+env:
+  FILE: ./index.html
+  AWS_REGION: 'us-east-1'
+  S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+  S3_KEY: ${{ secrets.S3_KEY }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
