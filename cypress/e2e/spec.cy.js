@@ -13,7 +13,6 @@ describe('My CRC webpage tests', () => {
     cy.contains('Experience')
     cy.contains('Skills')
     cy.contains('Certifications')
-    cy.contains('Education')
-    cy.contains('References')
+    cy.contains('visitor')
   })
 })
